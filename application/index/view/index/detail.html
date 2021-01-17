@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$data['title']}_乐享良品网站开发</title>
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_common.css">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_layer.css">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_layui.css">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_page.css">
+<script type="text/javascript" src="/templets/default/js/lion_jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_fadeImage.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_placeholder.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_storage.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_linkage.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_layer.js"></script><link rel="stylesheet" href="/templets/default/js/skin/default/layer.css?v=3.01172" id="layuicss-skinlayercss">
+<script type="text/javascript" src="/templets/default/js/lion_layui.js"></script>
+</head>
+<body>
+<div><div class="banner"><img src="/templets/default/images/lion_banner.jpg"></div></div>
+
+<div class="main">
+    <div class="position">
+        <span>当前位置：</span>
+        <a href="#">主页</a> &gt; <a href="#">招标信息</a> &gt; <a href="/index/index/{$a}">{$lm}</a> &gt; 
+        <a href="javascript:;">详情</a>
+    </div>
+    <div class="pagemain">
+        <div class="detail-title">
+            <h3>{$data['title']}</h3>
+            <p>发布时间：{$data['addtime'] | date="Y-m-d",###}&nbsp;&nbsp;&nbsp;&nbsp;阅读量：{$data['click']}</p>
+        </div>
+        <div class="details">{$data['content']}</div>
+    </div>
+</div>
+<div>
+    <div class="footer">
+        <div class="footmain">
+            <div class="footbox fl">
+                <div class="title">DISCLAIMER <span>免责声明</span></div>
+                <p>1、本网站所发布信息版权归原作者所有，若有版权附带声明以声明为准。</p>
+                <p>2、本网站发布信息的真实性由发布人负责。</p>
+                <p>3、本网站转载内容如有侵犯你的权益，请通知我们更正。若无声明，则视为默许。由此而导致的任何法律争议和后果，本站不承担任何责任。</p>
+                <p>4、本网站转载内容仅代表作者本人的观点，与本网站立场无关。</p>
+            </div>
+            <div class="footbox fr">
+                <div class="title">CONTACT INFORMATION <span>联系方式</span></div>
+                <p><img src="/templets/default/images/lion_footico1.png">主办：山东省成城投资咨询有限公司 </p>
+                <p><img src="/templets/default/images/lion_footico2.png">地址：济南市经十东路10567号 成城大厦A座</p>
+                <p><img src="/templets/default/images/lion_footico3.png">联系电话：0531-83191857 </p>
+                <p><img src="/templets/default/images/lion_footico4.png">合作伙伴：山西比比网络信息技术股份有限公司</p>
+            </div>
+        </div>
+        <p class="banquan">鲁ICP备17027605号-1</p>
+    </div>
+</div>
+
+
+
+</body></html>

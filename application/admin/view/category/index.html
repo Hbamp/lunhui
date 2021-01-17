@@ -1,0 +1,153 @@
+{include file="public/header" /}
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>栏目列表</h5>
+        </div>
+        <div class="ibox-content">          
+            <div class="row">
+                <div class="col-sm-12">   
+                    <div  class="col-sm-2">
+                        <div class="input-group" >  
+                            <a href="{:url('add_rule')}" class="btn btn-primary btn-outline" >添加顶级栏目</a> 
+                        </div>
+                    </div>                                                                                        
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="example-wrap">
+                <div class="example">
+                    <form id="ruleorder" name="ruleorder" method="post" action="{:url('ruleorder')}" >
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="long-tr">
+                                    <th width="6%">ID</th>
+                                    <th width="19%">栏目名称</th>
+                                    <th width="15%">栏目状态</th>
+                                    <th width="10%">排序</th>
+                                    <th width="23%">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>                       
+                                {foreach name="data" item="v" }
+                                    <tr class="long-td">
+                                        <td>{$v.id}</td>
+                                        <td>{$v.name}</td>                             
+                                        <td>
+                                            {if condition="$v.status eq 0"}
+                                                <a class="red" href="{:url('rule_state',['id'=>$v.id])}">
+                                                    <div id="zt{$v.id}"><span class="label label-info">开启</span></div>
+                                                </a>
+                                            {else/}
+                                                <a class="red" href="{:url('rule_state',['id'=>$v.id])}" >
+                                                    <div id="zt{$v.id}"><span class="label label-danger">禁用</span></div>
+                                                </a>
+                                            {/if} 
+                                        </td>
+                                        <td style="padding: 3px" >
+                                            <div >
+                                                <input name="{$v.id}" value=" {$v.sort}" width="50%" style="text-align:center;" class="form-control">
+                                            </div>
+                                        </td>                                                             
+                                        <td>  
+                                            <a href="{:url('add_son',['id'=>$v.id])}" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-paste"></i> 增加子栏目</a>&nbsp;&nbsp; 
+                                            <a href="{:url('index',['pid'=>$v.id])}" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-paste"></i> 查看子栏目</a>&nbsp;&nbsp;  
+                                                                           
+                                            <a href="{:url('edit_rule',['id'=>$v.id])}" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-paste"></i> 编辑</a>&nbsp;&nbsp;
+                                            <a href="javascript:;" onclick="del_rule({$v.id})" class="btn btn-danger btn-xs">
+                                                <i class="fa fa-trash-o"></i> 删除</a>                                       
+                                        </td>
+                                    </tr>
+                                {/foreach}
+                                {if condition="empty($data)"}
+                                    <tr class="long-td">
+                                        <td  colspan="5" align="left"> 暂无数据...</td>
+                                    </tr>
+                                {/if}
+                                <tr>
+                                    <td colspan="5" align="right">
+                                    <button type="submit"  id="btnorder" class="btn btn-info">更新排序</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{include file="public/footer" /}
+    
+
+<script type="text/javascript">
+   
+
+    //更新排序
+    $(function(){
+        $('#ruleorder').ajaxForm({
+            success: complete, 
+            dataType: 'json'
+        });
+
+        function complete(data){
+            if(data.code==1){
+                layer.msg(data.msg, {icon: 1,time:1500,shade: 0.1}, function(index){
+                    window.location.href="{:url('category/index')}";
+                });
+            }else{
+                layer.msg(data.msg, {icon: 2,time:1500,shade: 0.1}, function(index){
+                    layer.close(index);
+                    window.location.href=data.url;
+                });
+            }
+        }
+    });
+
+
+/**
+ * [del_rule 删除菜单]
+ * @Author[田建龙 864491238@qq.com]
+ * @param   {[type]}    id [用户id]
+ */
+function del_rule(id){
+    layer.confirm('确认删除此菜单以及其子菜单?', {icon: 3, title:'提示'}, function(index){
+        //do something
+        $.getJSON('./del_rule', {'id' : id}, function(res){
+            if(res.code == 1){
+                layer.msg(res.msg,{icon:1,time:1500,shade: 0.1},function(index){
+                    layer.close(index);
+                    window.location.href="{:url('category/index')}";
+                });
+               
+            }else{
+                layer.msg(res.msg,{icon:0,time:1500,shade: 0.1});
+            }
+        });
+
+        layer.close(index);
+    })
+
+}
+
+
+
+    //IOS开关样式配置
+   var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#1AB394'
+        });
+    var config = {
+        '.chosen-select': {},                    
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>
+</body>
+</html>

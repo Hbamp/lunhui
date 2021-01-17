@@ -1,0 +1,442 @@
+﻿/*当前位置*/
+.position{
+    width: 1200px;
+    line-height: 54px
+}
+.position span{
+    color: #999999;
+    font-size: 12px;
+}
+.position a{
+    color: #999999;
+    font-size: 12px;
+    /*padding-left: 10px;*/
+    /*background: url("../images/position.png") left center no-repeat;*/
+}
+.position a.home{
+    background: none;
+}
+.position a.current{
+    color: #333333;
+}
+
+/* 子页 主要内容区*/
+.pagemain{
+    width: 1200px;
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    /* border: 1px solid #eeeeee; */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+/*关于我们*/
+
+ul.aboutnav{
+    width: 501px;
+    height: 59px;
+    overflow: hidden;
+    margin: 30px auto;
+}
+ul.aboutnav li{
+    float: left;
+    width: 167px;
+    heihgt:59px;
+    line-height: 57px;
+    border: 1px solid #eeeeee;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul.aboutnav li a{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+ul.aboutnav li a.active,ul.aboutnav li a:hover{
+    color: #ffffff;
+    background: #5a7dd6;
+    border: 1px solid #5a7dd6;
+}
+.aboutmain{
+    width: 980px;
+    line-height: 32px;
+    margin: 30px  auto;
+    text-indent: 2em;
+}
+.contact_text .fl{
+    width: 345px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.contact_text .fl span,.contact_text .fr span{
+    width: 100%;
+    display: block;
+    color: #006ef5;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 32px;
+}
+.contact_text .fl p,.contact_text .fr p{
+    width: 100%;
+    display: block;
+    line-height: 32px;
+    margin-top: 13px;
+}
+.contact_text .fr{
+    width: 384px;
+    margin-top: 20px;
+}
+
+/*招标公告列表页*/
+
+.listnav{
+    width: 1200px;
+    height: 59px;
+    line-height: 59px;
+    background: #5a7dd6;
+}
+.listnav ul{
+    width: 780px;
+    overflow: hidden;
+    float: left;
+}
+.listnav ul li{
+    float: left;
+}
+.listnav ul li a{
+    padding: 0 50px;
+    color: #ffffff;
+    font-size: 16px;
+    display: block;
+}
+.listnav ul li a.active,.listnav ul li a:hover{
+    background: #7b9df2;
+}
+.listsearch{
+    float: right;
+    width: 309px;
+    height: 32px;
+    overflow: hidden;
+    margin: 14px 9px 0 0;
+    position: relative;
+}
+.seacher_input{
+    width: 245px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    background: #ffffff;
+    float: left;
+}
+.seacher_btn{
+    width: 39px;
+    height: 32px;
+    line-height: 32px;
+    float: right;
+    cursor: pointer;
+    background: #ffb648 url("../images/searchbtn.png") center center no-repeat;
+}
+
+.listmian{
+    width: 100%;
+    float: left;
+    min-height: 100px;
+    margin-top: 20px;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.listmian table{
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #eeeeee;
+}
+.listmian table tr{
+    height: 55px;
+    /*cursor: pointer;*/
+    border-top: 1px solid #eeeeee;
+    box-sizing: border-box;
+}
+.listmian table tr th{
+    padding: 15px 5px 15px 10px;
+    text-align: left;
+    line-height: 25px;
+    background: #ffffff;
+    display: inline-block;
+    float: left;
+}
+.listmian table tr td{
+    padding: 15px 5px 15px 10px;
+    height: 25px;
+    text-align: left;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    float: left;
+}
+.listmian table tr .num{
+    width: 50px;
+    padding: 15px 10px;
+    text-align: center;
+    display: block;
+    margin-right: 25px;
+}
+.listmian table tr .tit{
+    width: 700px;
+    overflow: hidden;
+    display: block;
+}
+.listmian table tr .type{
+    width: 100px;
+    display: block;
+}
+.listmian table tr .view{
+    width: 120px;
+    display: block;
+}
+.listmian table tr .time{
+    width: 120px;
+    display: block;
+    float: right;
+}
+
+.listmian table > tbody > tr:nth-of-type(even) {
+    background-color: #f5f5f5;
+}
+
+
+/* 搜索结果页 */
+.searchresult{
+    margin: 27px 0 5px 0;
+}
+.searchresult form{
+    width: 100%;
+    float: left;
+}
+.searchresult .form_group{
+    width: 345px;
+    float: left;
+    margin: 5px 20px;
+    position: relative;
+}
+.searchresult .form_group label{
+    width: 85px;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.searchresult .form_group select{
+    width: 258px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #eeeeee;
+}
+.searchresult .form_group .input_box{
+    display: inline-block;
+    position: relative;
+}
+.searchresult .form_group input{
+    width: 248px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #eeeeee;
+    padding-left: 10px;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+.searchresult .form_group input.layui-input{
+    z-index: 9999999999999999999;
+    position: relative;
+    width: 260px;
+}
+.searchresult .form_group_seacher{
+    width:100%;
+    margin: 5px auto;
+    text-align: center;
+    float: left;
+}
+.searchresult .form_group .seacher_radio{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    background: #ffb648;
+}
+.searchresult .resultinfo{
+    width: 100%;
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    margin-top: 20px;
+    background: url("../images/icon_searchresult.png") 20px center no-repeat;
+}
+.searchresult .resultinfo p{
+    float: left;
+    margin-left: 50px;
+}
+.searchresult .resultinfo p span{
+    color: #ffb648;
+}
+
+
+/*下载中心*/
+.listmian table tr .download_tit{
+    width: 900px;
+}
+.listmian table tr a.download{
+    width: 73px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #5a7dd6;
+    color: #5a7dd6;
+    display: block;
+    text-align: center;
+}
+.listmian table tr a.download:hover{
+    background: #5a7dd6;
+    color: #ffffff;
+}
+
+/*详情页*/
+.detail-title{
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    text-align: center;
+}
+.detail-title h3{
+    padding: 11px 20px;
+    line-height: 32px;
+    font-size: 21px;
+    font-family: 黑体;
+}
+.detail-title p{
+    line-height: 24px;
+    color: #999999;
+}
+.details{
+    margin-top: 20px;
+    padding: 30px;
+    line-height: 26px;
+    min-height: 500px;
+    word-break: break-all;
+}
+.articlelink{
+    padding: 10px 30px;
+    border-top: 1px solid #eeeeee;
+}
+.articlelink p{
+    line-height: 24px;
+}
+.articlelink p span{
+    color: #666666;
+    margin-right: 5px;
+}
+.articlelink p a{
+    font-weight: bold;
+}
+
+
+/*政策法规列表页*/
+.listmian table.law_table tr {
+    width: 100%;
+    margin: 1px auto;
+    float: left;
+    height: auto;
+}
+.listmian table.law_table tr td{
+    height: auto;
+}
+.listmian table.law_table  > tbody > tr:nth-of-type(even){
+    background-color: #ffffff;
+}
+.listmian table.law_table .time{
+    float: right;
+}
+.listmian table.law_table .law_tit a{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 32px;
+}
+.listmian table.law_table .law_tit p{
+    margin-top: 10px;
+    line-height: 24px;
+    height: 48px;
+    overflow: hidden;
+    color: #999999;
+}
+.listmian table.law_table td.num,.listmian table.law_table td.time{
+    line-height: 90px;
+}
+.listmian table.law_table tr:hover{
+    border: 1px solid #f57301;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.listmian table.law_table tr.title:hover{
+    border: 1px solid #eeeeee;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.listmian table.law_table tr:hover .law_tit a{
+    color: #f57301;
+}
+
+/* 综合信息 列表页*/
+.listmian table tr .info_tit {
+    width: 760px;
+}
+
+/*ie9 placeholder兼容*/
+.placeholder {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    z-index: 0;
+    color: #888;
+    height: 50px;
+    line-height: 50px;
+}
+
+.error {
+    width: 100%;
+    text-align: center;
+    padding: 100px 0;
+}
+.error p {
+    width: 100%;
+    margin-top: 20px;
+}
+.error p a.return{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    background: #3866a3;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/*公告附件*/
+.detail-file {
+    padding: 30px;
+    font-size: 16px;
+}
+.detail-file a {
+    color: #108cee;
+    font-size: 16px;
+}

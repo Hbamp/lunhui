@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}"/>
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/lion_common.css">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/lion_layer.css">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/lion_layui.css">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/lion_page.css">
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_fadeImage.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_placeholder.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_storage.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_linkage.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_layer.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/lion_layui.js"></script>
+</head>
+<body>
+{dede:include filename="lion_head.htm"/}
+<div class="main">
+    <div class="position">
+        <span>当前位置：</span>
+        {dede:field name='position'/}
+        <a href="javascript:;">列表</a>
+    </div>
+    <div class="pagemain">
+        <div class="listnav">
+            <ul>
+                <li><a href="/plus/list.php?tid=6" {dede:field.active runphp='yes'}if ($_GET['tid'] == 6) @me='class="active"';{/dede:field.active}>招标公告</a></li>
+                <li><a href="/plus/list.php?tid=7" {dede:field.active runphp='yes'}if ($_GET['tid'] == 7) @me='class="active"';{/dede:field.active}>中标公示</a></li>
+                <li><a href="/plus/list.php?tid=8" {dede:field.active runphp='yes'}if ($_GET['tid'] == 8) @me='class="active"';{/dede:field.active}>采购公告</a></li>
+                <li><a href="/plus/list.php?tid=9" {dede:field.active runphp='yes'}if ($_GET['tid'] == 9) @me='class="active"';{/dede:field.active}>成交公示</a></li>
+            </ul>
+        </div>
+        <div class="listmian">
+            <div style="min-height: 500px;">
+                <table>
+                    <tr>
+                        <th class="num">序号</th>
+                        <th class="tit">标题</th>
+                        <th class="type">类型</th>
+                        <th class="view">访问量</th>
+                        <th class="time">发布时间</th>
+                    </tr>
+                    {dede:list titlelen='200' pagesize='10'}
+                        <tr>
+                            <td class="num">[field:global.autoindex/]</td>
+                            <td class="tit">
+                                <a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a>
+                            </td>
+                            <td class="type" ><span>[field:shorttitle/]</span></td>
+                            <td class="view">[field:click/]</td>
+                            <td class="time">[field:stime/]</td>
+                        </tr>
+                    {/dede:list}
+                </table>
+            </div>
+            <div>
+                <div id="page" class="p_page"></div>
+                <script>
+                    layui.use(['laypage','laydate','layer'], function() {
+                        var laypage = layui.laypage;
+                        laypage.render({
+                            elem: 'page'
+                            , layout: ['count', 'prev', 'page', 'next', 'refresh', 'skip']
+                            , count: parseInt('{dede:field.typeid runphp="yes"}global $dsql;$row = $dsql->GetOne("select count(*) as dd from dede_archives where typeid = @me");@me = $row["dd"];{/dede:field.typeid}')
+                            , limit: 10
+                            , curr: "{dede:field.page runphp='yes'}@me=$_GET['PageNo'];{/dede:field.page}"
+                            , groups: 5
+                            , theme: '#FFB800'
+                            , jump: function (obj, first) {
+                                console.log(obj);
+                                console.log(first);
+                                if (!first) {
+                                    location.href = "/plus/list.php?tid={dede:field.tid runphp='yes'}@me=$_GET['tid'];{/dede:field.tid}&PageNo=" + obj.curr;
+                                }
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+{dede:include filename="lion_foot.htm"/}
+</body>
+</html>

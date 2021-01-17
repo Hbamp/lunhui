@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>招标信息  /  招标公告_乐享良品网站开发</title>
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_common.css">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_layer.css">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_layui.css">
+<link rel="stylesheet" type="text/css" href="/templets/default/style/lion_page.css">
+<script type="text/javascript" src="/templets/default/js/lion_jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_fadeImage.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_placeholder.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_storage.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_linkage.js"></script>
+<script type="text/javascript" src="/templets/default/js/lion_layer.js"></script><link rel="stylesheet" href="/templets/default/js/skin/default/layer.css?v=3.01172" id="layuicss-skinlayercss">
+<script type="text/javascript" src="/templets/default/js/lion_layui.js"></script>
+<link id="layuicss-laydate" rel="stylesheet" href="/templets/default/js/css/modules/laydate/default/laydate.css?v=5.0.9" media="all"><link id="layuicss-layer" rel="stylesheet" href="/templets/default/js/css/modules/layer/default/layer.css?v=3.1.1" media="all"></head>
+<body>
+<div><div class="banner"><img src="/templets/default/images/lion_banner.jpg"></div></div>
+
+<div class="main">
+    <div class="position">
+        <span>当前位置：</span>
+        <a href="#">主页</a> &gt; <a href="#">招标信息</a> &gt; <a href="#" id="title1">招标公告</a> &gt; 
+        <a href="javascript:;">列表</a>
+    </div>
+    <div class="pagemain">
+        <div class="listnav">
+            <ul>
+                <li><a href="/index/index/index">招标公告</a></li>
+                <li><a href="/index/index/zhongbiao">中标公示</a></li>
+                <li><a href="/index/index/caigou">采购公告</a></li>
+                <li><a href="/index/index/chengjiao" class="active">成交公示</a></li>
+            </ul>
+        </div>
+        <div class="listmian">
+            <div style="min-height: 500px;">
+                <table>
+                    <tbody><tr>
+                        <th class="num">序号</th>
+                        <th class="tit">标题</th>
+                        <th class="type">类型</th>
+                        <th class="view">访问量</th>
+                        <th class="time">发布时间</th>
+                    </tr>
+                    <tr>
+                        {volist name="data" id="vo"}
+                            <td class="num">{$i}</td>
+                            <td class="tit">
+                                <a href="/index/index/detail?t=chengjiao&id={$vo['id']}" title="{$vo['title']}">{$vo['title']}</a>
+                            </td>
+                            <td class="type"><span>{$vo['type']}</span></td>
+                            <td class="view">{$vo['click']}</td>
+                            <td class="time">{$vo['addtime'] | date="Y-m-d",###}</td>
+                        </tr>
+                        {/volist}
+                </tbody></table>
+            </div>
+            <div>
+                <div id="page" class="p_page"><div class="layui-box layui-laypage layui-laypage-molv" id="layui-laypage-1"><span class="layui-laypage-count">共 {$total} 条</span><a href="/index/index/chengjiao?page={$page-1}" class="layui-laypage-prev " >上一页</a>
+                    <?php for($i=1;$i<=$p;$i++){ ?>
+                    <a href="/index/index/chengjiao?page={$i}" <?php if($page == $i){ echo 'style="background-color:#FFB800;"';}?> >{$i}</a>
+                    <?php } ?>
+                    <a href="/index/index/chengjiao?page={$page+1}" class="layui-laypage-next" >下一页</a><a href="javascript:;"  class="layui-laypage-refresh"><i class="layui-icon layui-icon-refresh"></i></a><span class="layui-laypage-skip">到第<input type="text" min="1" id="yeshu" value="1" class="layui-input">页<button type="button" class="layui-laypage-btn" id="queding">确定</button></span></div></div>
+                <script>
+                   $('#queding').click(function(){
+                        var val = $('#yeshu').val();
+                        location.href="/index/index/chengjiao?page="+val;
+                   })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="footer">
+        <div class="footmain">
+            <div class="footbox fl">
+                <div class="title">DISCLAIMER <span>免责声明</span></div>
+                <p>1、本网站所发布信息版权归原作者所有，若有版权附带声明以声明为准。</p>
+                <p>2、本网站发布信息的真实性由发布人负责。</p>
+                <p>3、本网站转载内容如有侵犯你的权益，请通知我们更正。若无声明，则视为默许。由此而导致的任何法律争议和后果，本站不承担任何责任。</p>
+                <p>4、本网站转载内容仅代表作者本人的观点，与本网站立场无关。</p>
+            </div>
+            <div class="footbox fr">
+                <div class="title">CONTACT INFORMATION <span>联系方式</span></div>
+                <p><img src="/templets/default/images/lion_footico1.png">主办：山东省成城投资咨询有限公司 </p>
+                <p><img src="/templets/default/images/lion_footico2.png">地址：济南市经十东路10567号 成城大厦A座</p>
+                <p><img src="/templets/default/images/lion_footico3.png">联系电话：0531-83191857 </p>
+                <p><img src="/templets/default/images/lion_footico4.png">合作伙伴：山西比比网络信息技术股份有限公司</p>
+            </div>
+        </div>
+        <p class="banquan">鲁ICP备17027605号-1</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#title1').text($('.active').text());
+</script>
+
+</body></html>

@@ -1,0 +1,4 @@
+ RewriteEngine On
+#RewriteBase / 
+RewriteRule ^index-(\d+)\.html$ index.php?id=$1
+RewriteRule ^/zikao/beikao/mnst.html$ /zikao/beikao/cate/%E6%A8%A1%E6%8B%9F%E8%AF%95%E9%A2%98.html
